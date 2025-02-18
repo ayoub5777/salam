@@ -1,0 +1,642 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+}
+body{
+    background-image: url('background/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ******************************************************************** */
+/* ****************************** HEADER ****************************** */
+/* ******************************************************************** */
+
+.navbar{
+    background: black;
+    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0px 4px 10px #000000cc;
+}
+.navdiv{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.logo a{
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.05);
+}
+span{
+    color: #4169E1;
+}
+ul{
+    display: flex;
+}
+.element-nav{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 25px;
+    position: relative;
+}
+.element-nav::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+.element-nav:hover::before{
+    width: 100%;
+}
+.menu-btn{
+    display: none;
+}
+
+/* ********************************************************************* */
+/* ****************************** SECTION ****************************** */
+/* ********************************************************************* */
+
+section{
+    margin-top: 70px;
+}
+.section{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TITRE */
+
+.titre{
+    text-align: center;
+    padding: 30px;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+.titre h1{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.titre p{
+    font-size: 1.2em;
+}
+
+/* ****************************** Page 1 Index ****************************** */
+
+/* STATISTIQUE */
+
+.stats-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+}
+.stat-item{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-item:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.stat-item h2{
+    font-size: 2em;
+    color: #4169E1;
+    margin: 0;
+}
+.stat-item p{
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* EVENT */
+
+.events{
+    padding: 40px 20px;
+    text-align: center;
+}
+.events h2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #000000;
+}
+.cards{
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cards:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.cards img{
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.cards h3{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+    height: 50px;
+}
+.cards p{
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: #777;
+}
+.event-btn{
+    text-decoration: none;
+    background-color: #4169E1;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.event-btn:hover{
+    background-color: #1749df;
+}
+
+/* ****************************** Page 2 evenements ****************************** */
+
+/* FILTER */
+
+.filters{
+    font-size: 18px;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 50px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #00000059;
+}
+.filters select{
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* TABLE */
+
+table{
+    font-size: 18px;
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    margin-bottom: 60px;
+    box-shadow: 0px 0px 10px #00000059;
+}
+thead{
+    background-color: #4169E1;
+    color: white;
+}
+th, td{
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.details-btn, .delete-btn{
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+/* BOUTON */
+
+.details-btn{
+    width: 100px;
+    background-color: #008CBA;
+    color: white;
+    border-radius: 15px;
+    margin: 0px 10px;
+}
+.details-btn:hover{
+    background-color: #007096;
+}
+.delete-btn{
+    width: 100px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 15px;
+    margin: 0px 10px;
+}
+.delete-btn:hover{
+    background-color: #d3362b;
+}
+
+/* ****************************** Page 3 Ajouter ****************************** */
+
+/* FORMULAIRE D’AJOUT */
+
+.add-event{
+    max-width: 600px;
+    margin: 10px 15px 60px 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+.add-event h1{
+    text-align: center;
+    color: #4169E1;
+    margin-bottom: 20px;
+}
+form label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+form input, form select, form textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+form input:focus, form select:focus, form textarea:focus{
+    border-color: #4169E1;
+    outline: none;
+}
+.form-btn{
+    width: 100%;
+    background-color: #4169E1;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.form-btn:hover{
+    background-color: #1445d8;
+}
+
+/* ****************************** Page 4 Details ****************************** */
+
+/* EVENT */
+
+.featured-events{
+    padding: 10px 20px 40px 20px;
+    text-align: center;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detail{
+    display: inline-block;
+    text-align: center;
+    max-width: 670px;
+    font-size: 1.2em;
+}
+.event-details{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin: 10px;
+    padding: 20px;
+    line-height: 1.6em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.event-details p{
+    text-align: left;
+}
+.event-card{
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+    max-width: 650px;
+}
+.event-card img{
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.event-card img:hover{
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.event-card h3{
+    font-size: 1.7em;
+    color: black;
+    height: 50px;
+}
+.event-card p{
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: #777;
+}
+.event-btn{
+    border: none;
+    text-decoration: none;
+    background-color: #4169E1;
+    color: white;
+    margin: 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.event-btn:hover{
+    background-color: #1547dd;
+}
+.event-btn img{
+    width: 40px;
+}
+.btn-details{
+    border: none;
+    text-decoration: none;
+    background-color: #4169E1;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-details:hover{
+    background-color: #1648dd;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ****************************** Page 5 statistiques ****************************** */
+
+/* STATS */
+
+.stats-section{
+    text-align: center;
+    margin: 10px auto 80px auto;
+    width: 80%;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #00000033;
+}
+.stats-section h2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ****************************** Page 6 contact ****************************** */
+
+/* CONTACT */
+
+.contact-form{
+    width: 100%;
+    padding: 5px 20px;
+    font-size: 1.2em;;
+}
+.contact-form h2{
+    color: #4169E1;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.contact-form form input, .contact-form form textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact-form form input:focus, .contact-form form textarea:focus{
+    border-color: #4169E1;
+    outline: none;
+}
+.contact-form form button{
+    width: 150px;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4169E1;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    transition: transform 0.3s ease-in-out;
+}
+.contact-form form button:hover{
+    background-color: #184adf;
+    transform: scale(1.05);
+}
+#map{
+    margin: 30px 0px 60px 0px;
+    border-radius: 30px;
+    width: 100%;
+    height: 400px;
+}
+
+/* ******************************************************************** */
+/* ****************************** FOOTER ****************************** */
+/* ******************************************************************** */
+
+footer{
+    background-color: black;
+}
+.about{
+    padding: 40px 20px;
+    text-align: center;
+}
+.about h2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4169E1;
+}
+.about p{
+    font-size: 1em;
+    line-height: 1.6;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.fsj{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fsj p{
+    margin: 0;
+}
+.fslogo{
+    width: 100px;
+    margin: 0 30px 0 0;
+}
+.social-media{
+    margin: 20px 0px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+.logo-sm:hover{
+    transform: scale(1.2);
+}
+.logo-sm img{
+    width: 20px;
+}
+
+/* ************************************************************************ */
+/* ****************************** RESPONSIVE ****************************** */
+/* ************************************************************************ */
+
+/* ****************************** LAPTOP ****************************** */
+
+@media (max-width: 1319px){
+
+    /* BOUTON */
+
+    .details-btn{
+        margin: 0px 10px 5px 10px;
+    }
+    .delete-btn{
+        margin: 5px 10px 0px 10px;
+    }
+}
+
+/* ****************************** TABLLETE ****************************** */
+
+@media (max-width: 1024px){
+
+    /* NAVBAR */
+
+    section{
+        margin-top: 50px;
+    }
+    .navbar{
+        padding: 10px 20px;
+    }
+    .logo a{
+        font-size: 30px;
+    }
+    .element-nav{
+        font-size: 15px;
+        margin-left: 15px;
+    }
+
+    /* TITRE */
+
+    .titre h1{
+        font-size: 1.8em;
+    }
+    .titre p{
+        font-size: 1.2em;
+    }
+}
+
+/* ****************************** PHONE ****************************** */
+
+@media (max-width: 768px){
+    
+    /* MENU */
+
+    .menu-btn{
+        display: block;
+        font-size: 25px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .menu-btn.close-btn {
+        font-size: 25px;
+    }
+    .nav-links{
+        display: flex;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 50px);
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+    .nav-links.active{
+        transform: translateX(0);
+    }
+    .nav-links a{
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .fslogo{
+        margin: 0 10px 0 0;
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des Événements</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- ************************************** -->
+    <!-- *************** HEADER *************** -->
+    <!-- ************************************** -->
+    
+    <header>
+
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">
+                    <a href="index.html">Vision<span>Cultura</span></a>
+                </div>
+                <button class="menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="element-nav">Accueil</a></li>
+                    <li><a href="events.html" class="element-nav">Événements</a></li>
+                    <li><a href="add-event.html" class="element-nav">Ajouter</a></li>
+                    <li><a href="event-details.html" class="element-nav">Détails</a></li>
+                    <li><a href="stats.html" class="element-nav">Statistiques</a></li>
+                    <li><a href="contact.html" class="element-nav">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- ************************************** -->
+    <!-- *************** SECTION ************** -->
+    <!-- ************************************** -->
+
+    <section>
+
+        <div class="titre">
+            <h1>Statistiques des Événements</h1>
+            <p>Analyse graphique des catégories et fréquences des événements culturels.</p>
+        </div>
+
+        <section class="stats-section">
+            <h2>Statistiques des Événements</h2>
+            <canvas id="eventsChart" width="400" height="200"></canvas>
+        </section>
+
+    </section>
+
+    <!-- ************************************* -->
+    <!-- *************** FOOTER ************** -->
+    <!-- ************************************* -->
+    
+    <footer>
+        
+        <div class="about">
+            <h2>À Propos de Nous</h2>
+            <p>Notre mission est de connecter les gens avec des expériences culturelles uniques, que ce soit des concerts, des conférences ou des expositions. Nous croyons que la culture rassemble les communautés et enrichit nos vies.</p>
+            <div class="social-media">
+                <a href="https://www.instagram.com" rel="instagram" target="_blank" class="logo-sm"><img src="reseaux/instagram.png" alt="instagram"></a>
+                <a href="https://www.facebook.com" rel="facebook" target="_blank" class="logo-sm"><img src="reseaux/facebook.png" alt="facebook"></a>
+                <a href="https://www.x.com" rel="x" target="_blank" class="logo-sm"><img src="reseaux/x.png" alt="x"></a>
+                <a href="https://www.youtube.com" rel="youtube" target="_blank" class="logo-sm"><img src="reseaux/youtube.png" alt="youtube"></a>
+            </div>
+            <div class="fsj">
+                <img src="images/fslogo.png" alt="fslogo" class="fslogo">
+                <p>© 2024 FS El jadida™. All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+
+        // données des événements
+        const data = {
+            labels: ['Concerts', 'Conférences', 'Expositions', 'Festivals'],
+            datasets: [{
+                label: 'Nombre d\'événements par catégorie',
+                data: [12, 8, 15, 5], // valeurs fictives, Peut être mis à jour dynamiquement
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                borderWidth: 1
+            }]
+        };
+
+        // Paramètres du graphique
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+
+        // Afficher le graphique
+        const ctx = document.getElementById('eventsChart').getContext('2d');
+        new Chart(ctx, config);
+
+        /* ************************** RESPONSIVE ****************************** */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector(".menu-btn");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuBtn.addEventListener("click", () => {
+                
+                navLinks.classList.toggle("active");
+
+                // changer l'icône du bouton entre ☰ et X
+                if (navLinks.classList.contains("active")) {
+                    menuBtn.innerHTML = "&#10005;"; // icône X
+                    menuBtn.classList.add("close-btn");
+                } else {
+                    menuBtn.innerHTML = "☰";
+                    menuBtn.classList.remove("close-btn");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
